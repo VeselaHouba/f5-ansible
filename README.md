@@ -134,6 +134,24 @@ f5_partial_deploy:
 ansible-playbook playbooks/deploy.yml -e @f5_partial_deploy.yml
 ```
 
+### Profiles
+
+#### Rewrite profile
+F5 official modules don't provide rewrite profile deploy function (yet), so implementation in python is in library. Credits @erjac77
+```YAML
+- name: profile_rewrite_01
+  type: rewrite
+  rewrite_mode: uri-translation
+  uri_rules:
+    - name: test
+      type: both
+      client:
+        path: /old_path/
+      server:
+        path: /old_path/
+```
+
+
 ## License
 
 BSD

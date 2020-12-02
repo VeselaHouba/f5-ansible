@@ -61,3 +61,10 @@
   delegate_to: localhost
   tags: f5_profiles
   when: profile_type == 'persistence_universal'
+
+- name: Deploy rewrite profile
+  f5bigip_ltm_profile_rewrite: "{{ profile_cleaned }}"
+  notify: Save config
+  delegate_to: localhost
+  tags: f5_profiles
+  when: profile_type == 'rewrite'

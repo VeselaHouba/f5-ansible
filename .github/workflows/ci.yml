@@ -21,6 +21,11 @@ jobs:
         uses: github/super-linter@v3
         env:
           ANSIBLE_DIRECTORY: /
+          # Sorry pal, maybe one day
+          VALIDATE_PYTHON_BLACK: false
+          VALIDATE_PYTHON_PYLINT: false
+          VALIDATE_PYTHON_FLAKE8: false
+          VALIDATE_PYTHON_ISORT: false
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
